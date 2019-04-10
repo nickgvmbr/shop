@@ -1,5 +1,16 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-const App = () => <>App worky!</>
+import Container from './pages/Container'
+
+
+const App = () => (
+
+  <Router>
+    <Container />
+  </Router>
+
+)
+
 
 export default App
