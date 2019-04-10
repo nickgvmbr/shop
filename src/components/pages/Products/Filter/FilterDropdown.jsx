@@ -1,13 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import {
+  fetchCategories,
+  setFilter
+} from '../../../../redux/actions/filterActions'
 
 
-const FilterDropdown = () => (
+const FilterDropdown = ({ dispatch, categories, filter }) => {
 
-  <select className='form-control'>
-    <option>All</option>
-  </select>
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [])
 
-)
+  return (
+    <select
+      className='form-control'
+      value={ filter }
+      onChange={
+        event => dispatch(setFilter(event.target.value))
+      }
+    >
+
+      <option value=''>All</option>
+      {
+        categories &&
+        categories.map(i => <option key={ i }>{ i }</option>)
+      }
+
+    </select>
+  )
+
+}
 
 
-export default FilterDropdown
+export default connect(
+  ({ filter }) => ({
+    categories: filter.categories,
+    filter: filter.filter
+  })
+)(FilterDropdown)
