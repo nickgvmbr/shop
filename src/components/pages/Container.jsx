@@ -7,7 +7,7 @@ import Cart from './Cart'
 
 const Container = () => (
 
-  <div className='container'>
+  <div className='container my-5'>
 
     <Route exact path='/' render={ () => <Redirect to='/products' /> } />
     <Route exact path='/products' render={ Products } />
