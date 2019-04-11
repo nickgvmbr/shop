@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import CartBadge from './CartBadge'
+
 
 const Nav = () => (
 
@@ -14,6 +16,7 @@ const Nav = () => (
       </NavLink>
       <NavLink to='/cart' className='nav-item nav-link'>
         Cart
+        <CartBadge />
       </NavLink>
 
     </div>
