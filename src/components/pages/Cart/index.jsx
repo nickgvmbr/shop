@@ -1,15 +1,22 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import CartList from './CartList'
+import CartEmpty from './CartEmpty'
 
 
-const Cart = () => (
+const Cart = ({ cartLength }) => (
 
   <>
-    <CartList />
+    {
+      cartLength ? <CartList /> : <CartEmpty />
+    }
   </>
 
 )
 
 
-export default Cart
+export default withRouter(connect(
+  ({ cart }) => ({ cartLength: cart.length })
+)(Cart))
