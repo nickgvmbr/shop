@@ -7,7 +7,7 @@ const CartBadge = ({ cartLength }) => (
   <>
     {
       (cartLength > 0) && 
-      <span class='badge badge-primary ml-2'>{ cartLength }</span>
+      <span className='badge badge-primary ml-2'>{ cartLength }</span>
     }
   </>
 
